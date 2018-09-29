@@ -15,7 +15,7 @@ export default {
     const todayDay = new Date().getDate()
     const todayMonth = new Date().getMonth()
     const todayYear = new Date().getFullYear()
-    if (state.userTasks.length === 0) {
+    if (!state.userTasks) {
       return ['Loading']
     }
     return state.userTasks.filter((task) => {
