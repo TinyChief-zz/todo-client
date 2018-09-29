@@ -1,0 +1,40 @@
+export default {
+  menuStatus (state) {
+    return state.toggleMenu
+  },
+  userData (state) {
+    return state.user
+  },
+  userTasks (state) {
+    // if (state.user && state.user.tasks) {
+    //   return state.loadedTasks
+    // }
+    return state.userTasks
+  },
+  todayTasks (state) {
+    const todayDay = new Date().getDate()
+    const todayMonth = new Date().getMonth()
+    const todayYear = new Date().getFullYear()
+    return state.userTasks.filter((task) => {
+      const taskDate = new Date(task.date)
+      // Day of the month
+      const taskDay = taskDate.getDate()
+      const taskMonth = taskDate.getMonth()
+      const taskYear = taskDate.getFullYear()
+
+      if ((todayDay === taskDay) && (todayMonth === taskMonth) && (todayYear === taskYear)) {
+        return true
+      }
+    })
+  },
+  userTask (state) {
+    return (taskId) => {
+      return state.userTasks.find((task) => {
+        return task.id === taskId
+      })
+    }
+  },
+  openNewTask (state) {
+    return state.openNewTask
+  }
+}
