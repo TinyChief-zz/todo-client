@@ -57,12 +57,13 @@ async function signUserIn ({ commit }, payload) {
 
 function logoutUser ({ commit }, payload) {
   toast.logoutUser(false)
-  const btnYes = document.querySelector('.yes')
-  btnYes.addEventListener('click', function () {
-    commit('toggleMenu')
-    commit('logoutUser', payload)
-    router.push({ name: 'Login' })
-  })
+  document
+    .querySelector('.logout')
+    .addEventListener('click', function () {
+      commit('toggleMenu')
+      commit('logoutUser', payload)
+      router.push({ name: 'Login' })
+    })
 }
 
 export {signUserIn, signUserUp, logoutUser}

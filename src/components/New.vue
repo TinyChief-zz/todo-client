@@ -1,7 +1,7 @@
 <template>
   <div class="outter-wrapper">
     <div :class="['wrapper']">
-      <Toolbar leftIcon="close" rightIcon="check" title="Add New" @left-icon-clicked="leftAction" @right-icon-clicked="rightAction">
+      <Toolbar leftIcon="fal fa-times" rightIcon="fal fa-check" title="Add New" @left-icon-clicked="leftAction" @right-icon-clicked="rightAction">
       </Toolbar>
       <div class="header">
         <input class="title first-row" type="text" placeholder="New Event" v-model="title">
@@ -10,12 +10,12 @@
       <div class="blocks">
 
         <div class="block-item" @click="toggleCalendar">
-          <img class="block-item__icon" src="../assets/calendar-w.png" alt="calendar">
+          <img class="block-item__icon" src="../assets/images/calendar-w.png" alt="calendar">
           <div class="block-item__content">
             <p class="block-item__title">Date</p>
             <p>{{ today }}</p>
           </div>
-          <img :class="[calendarIsOpened ? 'rotate90' : '', 'icon-action']" src="../assets/disclosure.png" alt="open">
+          <img :class="[calendarIsOpened ? 'rotate90' : '', 'icon-action']" src="../assets/images/disclosure.png" alt="open">
         </div>
         <div class="calendar" :class="[calendarIsOpened ? 'opened' : 'closed']">
           <vue-calendar @day-clicked="dayClicked">
@@ -23,12 +23,12 @@
         </div>
 
         <div class="block-item time-picker" @click="toggleTime">
-          <img class="block-item__icon" src="../assets/time-w.png" alt="time">
+          <img class="block-item__icon" src="../assets/images/time-w.png" alt="time">
           <div class="block-item__content">
             <p class="block-item__title">Time</p>
             <p>{{ setValue(hoursChoosed) }}:{{ setValue(minutesChoosed) }}</p>
           </div>
-          <img :class="[timeIsOpened ? 'rotate90' : '', 'icon-action']" src="../assets/disclosure.png" alt="open">
+          <img :class="[timeIsOpened ? 'rotate90' : '', 'icon-action']" src="../assets/images/disclosure.png" alt="open">
         </div>
 
         <div class="select-time" :class="[timeIsOpened ? 'opened' : 'closed']">
@@ -49,7 +49,7 @@
         </div>
 
         <div class="block-item">
-          <img class="block-item__icon" src="../assets/location-w.png" alt="location">
+          <img class="block-item__icon" src="../assets/images/location-w.png" alt="location">
           <div class="block-item__content">
             <p class="block-item__title">Location</p>
             <input type="location" name="location" placeholder="Enter location" v-model="location" />
@@ -57,13 +57,13 @@
         </div>
 
         <div class="block-item" @click="togglePeople">
-          <img class="block-item__icon" src="../assets/people-w.png" alt="people">
+          <img class="block-item__icon" src="../assets/images/people-w.png" alt="people">
           <div class="block-item__content">
             <p class="block-item__title">People</p>
             <p v-if="peopleList.length == 0">Add people</p>
             <span class="names-item" v-for="(name, i) in peopleList" :key="i">{{ name ? name : 'Add people' }}</span>
           </div>
-          <img class="icon-action" src="../assets/plus.png" alt="add">
+          <img class="icon-action" src="../assets/images/plus.png" alt="add">
         </div>
         <div class="add-people" :class="[peopleIsOpened ? 'opened' : 'closed']">
           <input type="text" placeholder="Enter name" v-model="personName">
@@ -71,7 +71,7 @@
         </div>
 
         <div class="block-item">
-          <img class="block-item__icon" src="../assets/droplet-w.png" alt="droplet">
+          <img class="block-item__icon" src="../assets/images/droplet-w.png" alt="droplet">
           <div class="block-item__content">
             <p class="block-item__title">label color</p>
             <div class="colors">
@@ -82,7 +82,7 @@
         </div>
         {{ typeSelected }}
         <div class="block-item block-types">
-          <img class="block-item__icon" src="../assets/notification-w.png" alt="notification">
+          <img class="block-item__icon" src="../assets/images/notification-w.png" alt="notification">
           <div class="block-item__content">
             <p class="block-item__title">types</p>
             <ul class="types">
@@ -94,7 +94,7 @@
         </div>
 
         <div class="block-item">
-          <img class="block-item__icon" src="../assets/notification-w.png" alt="notification">
+          <img class="block-item__icon" src="../assets/images/notification-w.png" alt="notification">
           <div class="block-item__content">
             <p class="block-item__title">notification</p>
             <p>Will be available in FUTURE</p>

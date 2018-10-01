@@ -5,50 +5,50 @@
     <div class="header">
       <div class="photo-wrapper">
         <div class="add-photo" v-bind:style="{
-                backgroundImage : 'url(' + require('../assets/camera.png') + ')',
+                backgroundImage : 'url(' + require('../assets/images/camera.png') + ')',
                 backgroundSize: '50%'
               }">
         </div>
         <div class="photo" v-bind:style="{
-                backgroundImage : 'url(' + require('../assets/photo.png') + ')',
+                backgroundImage : 'url(' + require('../assets/images/photo.png') + ')',
               }"></div>
         <div class="logout" v-bind:style="{
-                backgroundImage : 'url(' + require('../assets/logout-w.png') + ')',
+                backgroundImage : 'url(' + require('../assets/images/logout-w.png') + ')',
                 backgroundSize: '40%'
               }" @click="$store.dispatch('logoutUser')"></div>
       </div>
     </div>
     <div class="blocks">
       <div class="block-item">
-        <img src="../assets/profile.png" alt="profile">
+        <img src="../assets/images/profile.png" alt="profile">
         <div class="block-item__content">
           <p class="block-item__title">name</p>
           <input type="text" name="name" v-model="userData.name" />
         </div>
       </div>
       <div class="block-item">
-        <img src="../assets/email.png" alt="email">
+        <img src="../assets/images/email.png" alt="email">
         <div class="block-item__content">
           <p class="block-item__title">email</p>
           <input type="text" name="email" v-model="userData.email" />
         </div>
       </div>
       <div class="block-item">
-        <img src="../assets/password.png" alt="password">
+        <img src="../assets/images/password.png" alt="password">
         <div class="block-item__content">
           <p class="block-item__title">password</p>
           <input type="password" name="password" v-model="userData.password" />
         </div>
       </div>
       <div class="block-item">
-        <img src="../assets/phone.png" alt="phone">
+        <img src="../assets/images/phone.png" alt="phone">
         <div class="block-item__content">
           <p class="block-item__title">phone</p>
           <input type="phone" name="phone" v-model="userData.phone" />
         </div>
       </div>
       <div class="block-item">
-        <img src="../assets/address.png" alt="address">
+        <img src="../assets/images/address.png" alt="address">
         <div class="block-item__content">
           <p class="block-item__title">address</p>
           <input type="address" name="address" placeholder="MOSCOW" />

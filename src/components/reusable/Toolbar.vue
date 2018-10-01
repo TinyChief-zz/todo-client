@@ -1,17 +1,22 @@
 <template>
   <div class="toolbar">
+    <!-- 
+      Works next way
+      If parent component provide data, for example,
+      for right icon, then this renders right icon.
+     -->
     <div class="btn--action" @click="$emit('left-icon-clicked')">
-      <!-- <i :class="[leftIcon]"></i> -->
-      <img :src="require('../../assets/' + leftIcon + '.png')" alt="" width="25px">
+      <i :class=[leftIcon]></i>
     </div>
     <span class="title" v-if="title">{{ title }}</span>
     <div class="btn--action" v-if="rightIcon" @click="$emit('right-icon-clicked')">
-      <img 
-        :src="require('../../assets/' + rightIcon + '.png')" 
+      <!-- <img 
+        :src="require('../../assets/images/' + rightIcon + '.png')" 
         :class="[rightIcon == leftIcon ? 'invisible' : '']"
         alt="" 
         width="25px"
-      >
+      > -->
+      <i :class=[rightIcon]></i>
     </div>
   </div>
 </template>
@@ -22,9 +27,7 @@ export default {
   name: 'Toolbar',
   props: ["leftIcon", "rightIcon", "title"],
   data() {
-    return {
-      // leftIcon: "fas fa-arrow-left"
-    };
+    return {}
   }
 };
 </script>
@@ -49,5 +52,8 @@ export default {
 }
 .title {
   font-size: 22px;
+}
+i {
+  font-size: 28px;
 }
 </style>

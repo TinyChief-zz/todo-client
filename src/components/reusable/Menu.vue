@@ -2,7 +2,7 @@
   <div :class="[this.$store.getters.menuStatus ? 'opened' : 'closed', 'menu']">
     <div class="profile">
       <div class="photo">
-        <img src="../../assets/photo.png" alt="" width="70px">
+        <img src="../../assets/images/photo.png" alt="" width="70px">
       </div>
       <div class="text-information">
         <h1>{{userData.name}}</h1>
@@ -16,7 +16,8 @@
           :key="i"
           @click="handleRoute(item.name)"
         >
-          <img :src="require('../../assets/' + item.icon + '.png')" :alt="item.icon">
+          <!-- <img :src="require('../../assets/images/' + item.icon + '.png')" :alt="item.icon"> -->
+          <i :class="[item.icon]"></i>
           <p>{{ item.name }}</p>
           <span>{{ item.number }}</span>
         </li>
@@ -25,11 +26,11 @@
     <div>
       <ul>
         <li @click="handleSettings">
-          <img :src="require('../../assets/settings.png')" alt="settings">
+          <i class='fal fa-cog'></i>
           <p>Settings</p>
         </li>
         <li @click="handleLogout">
-          <img :src="require('../../assets/logout.png')" alt="settings">
+          <i class="fal fa-sign-out"></i>
           <p>Logout</p>
         </li>
       </ul>
@@ -46,37 +47,37 @@ export default {
       navList: [
         {
           name: 'Home',
-          icon: 'home',
+          icon: 'fal fa-home',
           number: ''
         },
         {
           name: 'Calendar',
-          icon: 'calendar',
+          icon: 'fal fa-calendar-alt',
           number: '',
         },
         {
           name: 'Overview',
-          icon: 'overview',
+          icon: 'fal fa-chart-pie',
           number: '5'
         },
         {
           name: 'Groups',
-          icon: 'groups',
+          icon: 'fal fa-align-left',
           number: ''
         },
         {
           name: 'Lists',
-          icon: 'lists',
+          icon: 'fal fa-list-ul',
           number: '4'
         },
         {
           name: 'Profile',
-          icon: 'profile',
+          icon: 'fal fa-user-circle',
           number: ''
         },
         {
           name: 'Timeline',
-          icon: 'timeline',
+          icon: 'fal fa-undo fa-rotate-90',
           number: '2'
         }
       ]
@@ -129,10 +130,11 @@ $textColor: #1d1d26;
 
 .profile {
   display: flex;
-  align-items: center;
   padding-bottom: 20px;
   position: relative;
   margin-bottom: 5px;
+  text-align: left;
+  padding-top: 10px;
   &::after {
     content: '';
     position: absolute;
@@ -140,11 +142,12 @@ $textColor: #1d1d26;
     width: 100%;
     bottom: 0;
     left: 0;
-    background: url('../../assets/divider1.png') center;
+    background: url('../../assets/images/divider1.png') center;
     background-size: contain;
   }
   h1 {
-    font-size: 30px;
+    font-size: 28px;
+    line-height: 1.2;
     font-weight: 400;
     margin-bottom: 8px;
   }
@@ -173,6 +176,19 @@ li {
   p {
     font-size: 16px;
   }
+  i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    color: #cdcdcd;
+    transition: all 0.2s ease-in;
+  }
+  &:hover i {
+    color: #ff4f79;
+    opacity: 0.8;
+  }
 }
 
 nav {
@@ -186,7 +202,7 @@ nav {
     width: 100%;
     bottom: 0;
     left: 0;
-    background: url('../../assets/divider1.png') center;
+    background: url('../../assets/images/divider1.png') center;
     background-size: contain;
   }
 }

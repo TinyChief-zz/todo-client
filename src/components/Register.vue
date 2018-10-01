@@ -7,33 +7,33 @@
       <div class="photo-wrapper">
         <div 
           class="photo"
-          v-bind:style="{backgroundImage : 'url(' + require('../assets/photo.png') + ')' }"  
+          v-bind:style="{backgroundImage : 'url(' + require('../assets/images/photo.png') + ')' }"  
         ></div>
       </div>
       <div class="blocks">
         <div class="block-item">
-          <img src="../assets/profile.png" alt="email">
+          <img src="../assets/images/profile.png" alt="email">
           <div class="block-item__content">
             <p class="block-item__title">Name</p>
             <input type="name" name="name" placeholder="Enter name" v-model="name"/>
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/email.png" alt="email">
+          <img src="../assets/images/email.png" alt="email">
           <div class="block-item__content">
             <p class="block-item__title">Email</p>
             <input type="email" name="email" placeholder="Enter email" v-model="email" />
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/password.png" alt="password">
+          <img src="../assets/images/password.png" alt="password">
           <div class="block-item__content">
             <p class="block-item__title">Password</p>
             <input type="password" name="Password" placeholder="Enter password" v-model="password" />
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/phone.png" alt="phone">
+          <img src="../assets/images/phone.png" alt="phone">
           <div class="block-item__content">
             <p class="block-item__title">Phone</p>
             <input type="text" name="Phone" placeholder="Your phone number" v-model="phone"/>

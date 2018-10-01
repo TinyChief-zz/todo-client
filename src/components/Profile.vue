@@ -7,7 +7,7 @@
       <h3 class="second-row">2015</h3>
       <div class="photo-wrapper">
         <div class="photo" v-bind:style="{
-                backgroundImage : 'url(' + require('../assets/photo.png') + ')',
+                backgroundImage : 'url(' + require('../assets/images/photo.png') + ')',
                 width: '70px',
                 height: '70px',
                 marginTop: '20px',
@@ -19,14 +19,14 @@
         <h5>{{ item.title }}</h5>
         <div class="row">
           <div class="progress">
-            <img :src="require('../assets/progress-' + item.progress +'.png')" alt="progress" width="40px">
+            <img :src="require('../assets/images/progress-' + item.progress +'.png')" alt="progress" width="40px">
           </div>
           <div class="amount">{{ item.amount }}</div>
           <div class="btn" @click="$router.push({
                   path: `/lists/${item.title.toLowerCase()}`,
                   props: true}
                 )">
-            <img src="../assets/lists-w.png" alt="lists" width="30px">
+            <img src="../assets/images/lists-w.png" alt="lists" width="30px">
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default {
     width: 100%;
     bottom: 0;
     left: 0;
-    background: url("../assets/divider.png") center;
+    background: url("../assets/images/divider.png") center;
     background-size: contain;
   }
   h5 {

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <new v-if='this.$store.getters.openNewTask'></new>
+      <new v-if="this.$store.getters.openNewTask"></new>
       <div class="outter-wrapper" v-show='!this.$store.getters.openNewTask'>
         <Menu v-if="this.$store.getters.userData"></Menu>
         <router-view/>
@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss">
 @import '@/style/_vars.scss';
+@import '/assets/fontawesome/css/all.css';
 
 @font-face {
   font-family: 'Avenir Book';
@@ -41,7 +42,7 @@ export default {
   color: white;
   display: flex;
   align-items: center;
-  background: url("assets/image.png") center no-repeat;
+  background: url("assets/images/image.png") center no-repeat;
 }
 
 .container {
@@ -108,7 +109,7 @@ export default {
     width: 100%;
     bottom: 0;
     left: 0;
-    background: url('./assets/divider.png') center;
+    background: url('./assets/images/divider.png') center;
     background-size: contain;
   }
   &__content {

@@ -6,8 +6,8 @@
       <div v-for="(day, i) in daysWithTasks" :key="i" class="days-block">
         <p class="day-title">{{ day }}</p>
         <div v-for="(hero, index) in getTaskForDay(day)" v-bind:key="index" class="block-item">
-          <!-- <img :src="'../assets/'+ hero.icon +'.png'" alt="email"> -->
-          <img :src="require('../assets/'+ hero.icon +'.png')" :alt="hero.icon">
+          <!-- <img :src="'../assets/images/'+ hero.icon +'.png'" alt="email"> -->
+          <img :src="require('../assets/images/'+ hero.icon +'.png')" :alt="hero.icon">
           <div class="block-item__content">
             <p class="block-item__title">
               {{ hero.title }}

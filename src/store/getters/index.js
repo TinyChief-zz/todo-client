@@ -6,9 +6,6 @@ export default {
     return state.user
   },
   userTasks (state) {
-    // if (state.user && state.user.tasks) {
-    //   return state.loadedTasks
-    // }
     return state.userTasks
   },
   todayTasks (state) {

@@ -12,7 +12,7 @@
     <div class="types">
       <ul>
         <li v-for="(item, i) in typesList" :key="i">
-          <div class="picture" v-bind:style="{backgroundImage : 'url(' + require('../assets/' + item.name.toLowerCase() + '-img.png') + ')' }"></div>
+          <div class="picture" v-bind:style="{backgroundImage : 'url(' + require('../assets/images/' + item.name.toLowerCase() + '-img.png') + ')' }"></div>
           <div class="text-content">
             <h2>{{ item.name }}</h2>
             <div class="amount">{{ item.amount }}</div>

@@ -1,6 +1,6 @@
 <template>
   <button class="btn--add" @click="addTask">
-    <img src="../../assets/plus.png" alt="plus" width="35px">
+    <img src="../../assets/images/plus.png" alt="plus" width="35px">
   </button>
 </template>
 

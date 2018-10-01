@@ -1,14 +1,14 @@
 <template>
   <div :class="['wrapper', this.$store.getters.menuStatus ? 'menu-opened' : 'menu-closed']">
-    <Toolbar leftIcon="menu" title="" @left-icon-clicked="leftAction">
+    <Toolbar leftIcon="fal fa-bars" title="" @left-icon-clicked="leftAction">
     </Toolbar>
     <vue-calendar @show-all="showAll" @day-clicked="dayClicked" @event-clicked="eventClicked" @month-changed="monthChanged">
     </vue-calendar>
     <div class="blocks">
       <div v-for="(hero, index) in tasksDisplay" v-bind:key="index" class="block-item">
-        <!-- <img :src="'../assets/'+ hero.icon +'.png'" alt="email"> -->
-        <!-- <img :src="require('../assets/'+ hero.icon +'.png')" :alt="hero.icon"> -->
-        <img :src="require('../assets/people.png')" :alt="hero.type">
+        <!-- <img :src="'../assets/images/'+ hero.icon +'.png'" alt="email"> -->
+        <!-- <img :src="require('../assets/images/'+ hero.icon +'.png')" :alt="hero.icon"> -->
+        <img :src="require('../assets/images/people.png')" :alt="hero.type">
         <div class="block-item__content">
           <p class="block-item__title">
             {{ hero.title }}
@@ -38,35 +38,7 @@
         tasksDisplay: [],
         tasksFiltered: [],
         tasks: [],
-        // tasks: [{
-        //     title: "Brian’s Birthday",
-        //     type: "",
-        //     time: "10am",
-        //     icon: "birthday",
-        //     date: new Date(2018, 5, 11)
-        //   },
-        //   {
-        //     title: "Lunch with Diane",
-        //     type: "Restaurant",
-        //     time: "12am",
-        //     icon: "food",
-        //     date: new Date(2018, 6, 5)
-        //   },
-        //   {
-        //     title: "Design Meeting",
-        //     type: "Hangouts",
-        //     time: "2pm",
-        //     icon: "chat",
-        //     date: new Date(2018, 7, 10)
-        //   },
-        //   {
-        //     title: "Revise Wireframes",
-        //     type: "Mobile App",
-        //     time: "12am",
-        //     icon: "mouse",
-        //     date: new Date(2018, 5, 16)
-        //   }
-        // ]
+        
       };
     },
     methods: {
@@ -162,12 +134,13 @@
       }
     },
     mounted: function() {
-      
+      const oldNext = document.querySelector('.next-month')
+      oldNext.innerHTML = '<i class="fal fa-angle-right"> </i>'
+      const oldPrev = document.querySelector('.prev-month')
+      oldPrev.innerHTML = '<i class="fal fa-angle-left"> </i>'
     },
     beforeMount: async function() {
-      await this.$store.dispatch('getUserTasks')
-      this.tasks = this.$store.getters.loadedTasks
-
+      this. tasks = this.$store.getters.userTasks
       this.$nextTick(() => {
         this.filterTasksByMonthAndYear();
         this.setHighlights(this.tasksFiltered);
@@ -177,6 +150,9 @@
 </script>
 
 <style scoped lang="scss">
+  i {
+    font-size: 36px;
+  }
   .wrapper {
     position: relative;
   }

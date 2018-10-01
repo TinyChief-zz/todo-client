@@ -4,19 +4,19 @@
   
       <div class="logo-wrapper">
         <div class="logo">
-          <img src="../assets/logo.png" alt="">
+          <img src="../assets/images/logo.png" alt="">
         </div>
       </div>
       <div class="blocks">
         <div class="block-item">
-          <img src="../assets/email.png" alt="email">
+          <img src="../assets/images/email.png" alt="email">
           <div class="block-item__content">
             <p class="block-item__title">Email</p>
             <input type="email" name="email" placeholder="Enter your email" v-model="email" />
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/password.png" alt="password">
+          <img src="../assets/images/password.png" alt="password">
           <div class="block-item__content">
             <p class="block-item__title">Password</p>
             <input type="password" name="Password" placeholder="Enter password" v-model="password" />

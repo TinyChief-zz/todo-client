@@ -133,7 +133,7 @@ export default {
       overlayClose: true,
       class: 'test',
       buttons: [
-        ['<button class="yes">ВЫЙТИ</button>', function (instance, toast) {
+        ['<button class="logout">ВЫЙТИ</button>', function (instance, toast) {
           instance.hide({
             transitionOut: 'fadeOutUp',
             onClosing: function (instance, toast, closedBy) {
@@ -141,7 +141,7 @@ export default {
             }
           }, toast, 'Yes')
         }, true], // true to focus
-        ['<button class="no">ОТМЕНА</button>', function (instance, toast) {
+        ['<button class="cancel-logout">ОТМЕНА</button>', function (instance, toast) {
           instance.hide({
             transitionOut: 'fadeOutUp',
             onClosing: function (instance, toast, closedBy) {
