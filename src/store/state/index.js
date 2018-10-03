@@ -11,5 +11,6 @@ export default {
   },
   jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLnJ1IiwiaWQiOiI1YmFmNTdhNTcyYzY4NjE1ZTFiYTVhZTQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE1Mzg0MjE3NjksImV4cCI6MTUzODQyNTM2OX0.orpMNhDHA3UuGq3qM5mMpcsy8pr_DSHwR8--4WaCLp4',
   loading: false,
-  openNewTask: false
+  openNewTask: false,
+  todayDate: null
 }

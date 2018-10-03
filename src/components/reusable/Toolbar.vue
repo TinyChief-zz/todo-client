@@ -13,7 +13,7 @@
       :class="[!rightIcon ? 'invisible' : '', 'btn--action']"
       @click="$emit('right-icon-clicked')"
     >
-      <i :class=[rightIcon]></i>
+      <i :class="[rightIcon, 'right-icon']"></i>
     </div>
   </div>
 </template>
@@ -37,6 +37,7 @@ export default {
   align-items: center;
   padding: 10px 5px;
   min-height: 48px;
+  position: relative;
 }
 
 .btn--action {
@@ -52,5 +53,11 @@ export default {
 }
 i {
   font-size: 28px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.right-icon {
+  right: 0;
 }
 </style>

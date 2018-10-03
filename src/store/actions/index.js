@@ -5,6 +5,9 @@ export default {
   toggleMenu ({ commit }) {
     commit('toggleMenu')
   },
+  setDate ({ commit }) {
+    commit('setTodayDate')
+  },
   createTask,
   getUserTasks,
   getTodayTasks,

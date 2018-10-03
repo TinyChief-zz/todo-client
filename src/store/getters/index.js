@@ -36,5 +36,8 @@ export default {
   },
   openNewTask (state) {
     return state.openNewTask
+  },
+  getTodayDate (state) {
+    return state.todayDate
   }
 }

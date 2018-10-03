@@ -9,14 +9,6 @@
     <div class="header">
       <h1 class="first-row">January</h1>
       <h3 class="second-row">2015</h3>
-      <div class="photo-wrapper">
-        <div class="photo" v-bind:style="{
-                backgroundImage : 'url(' + require('../assets/images/photo.png') + ')',
-                width: '70px',
-                height: '70px',
-                marginTop: '20px',
-              }"></div>
-      </div>
     </div>
     <div class="summary">
       <div class="summary-item" v-for="(item, i) in summaryItems" :key="i">
@@ -30,7 +22,7 @@
                   path: `/lists/${item.title.toLowerCase()}`,
                   props: true}
                 )">
-            <img src="../assets/images/lists-w.png" alt="lists" width="30px">
+            <i class="fal fa-list-ul"></i>
           </div>
         </div>
       </div>
@@ -119,6 +111,15 @@ export default {
   }
   .btn {
     right: 0%;
+  }
+  i {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: rgba(#cdcdcd, 0.8);
+    transition: all 0.2s ease-in;
   }
 }
 

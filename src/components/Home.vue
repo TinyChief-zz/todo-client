@@ -84,10 +84,10 @@ export default {
     },
   },
   beforeMount: async function() {
+    if (!this.$store.getters.getTodayDate) {
+      this.$store.dispatch('setDate')
+    }
     this.time = this.getTime();
-    // Comment this two lines!
-    // await this.$store.dispatch('getUserTasks')
-    // this.$store.dispatch('getTodayTasks')
   },
   mounted: function() {
     // UPDATE TIME EVERY 30 SECONDS

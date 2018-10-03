@@ -15,9 +15,9 @@
 import New from '@/components/New.vue';
 
 export default {
-  components: {New},
-  name: 'App'
-}
+  components: { New },
+  name: 'App',
+};
 </script>
 
 <style lang="scss">
@@ -26,11 +26,11 @@ export default {
 
 @font-face {
   font-family: 'Avenir Book';
-  src: url("assets/fonts/Avenir-Book.ttf") format("ttf"),
+  src: url('assets/fonts/Avenir-Book.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Avenir Light';
-  src: url("assets/fonts/Avenir-Light.ttf") format("ttf"),
+  src: url('assets/fonts/Avenir-Light.ttf') format('ttf');
 }
 
 #app {
@@ -42,7 +42,7 @@ export default {
   color: white;
   display: flex;
   align-items: center;
-  background: url("assets/images/image.png") center no-repeat;
+  background: url('assets/images/image.png') center no-repeat;
 }
 
 .container {
@@ -53,7 +53,7 @@ export default {
     width: $phoneWidth;
   }
   @include for-phone {
-    width: $smPhoneWidth
+    width: 100%;
   }
   @include for-small-phone {
     width: 100%;
@@ -77,10 +77,17 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: 0.3s transform ease-in-out
+  transition: 0.3s transform ease-out;
+  @include for-small-phone {
+    padding: 10px 18px;
+  }
 }
+
 .menu-opened {
-  transform: translateX(300px)
+  transform: translateX(300px);
+  @include for-small-phone {
+    transform: translateX(250px);
+  }
 }
 
 .blocks {
@@ -100,7 +107,7 @@ export default {
   height: 80px;
   display: flex;
   align-items: center;
-  padding-left: 50px; 
+  padding-left: 50px;
   position: relative;
   &::after {
     content: '';
@@ -130,10 +137,10 @@ export default {
     font-size: 16px;
     color: white;
     opacity: 0.8;
-      &::placeholder { 
+    &::placeholder {
       color: white;
-      opacity: 0.6; 
-      }
+      opacity: 0.6;
+    }
   }
   .block-item__title {
     display: flex;
@@ -151,7 +158,7 @@ export default {
   }
   .block-item__type {
     color: rgba(255, 255, 255, 0.5);
-    text-align: left
+    text-align: left;
   }
 }
 .header {
@@ -167,26 +174,32 @@ export default {
     border: none;
     margin-bottom: 6px;
     letter-spacing: 1px;
-      
   }
   .second-row {
     width: 100%;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);  
-    text-transform: uppercase;  
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
   }
 }
 .photo-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: center center / contain;
+}
+
+.week-day {
+  @include for-small-phone {
+    width: 40px;
+    height: 40px;
   }
-  
-  .photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: center center / contain;
-  }
+}
 </style>

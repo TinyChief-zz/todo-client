@@ -1,6 +1,9 @@
 // import state from '../state'
 
 export default {
+  setTodayDate (state, payload) {
+    state.todayDate = new Date()
+  },
   createTask (state, payload) {
     state.userTasks.push(payload)
   },

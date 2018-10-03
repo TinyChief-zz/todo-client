@@ -8,7 +8,7 @@
 
     <div class="profile">
       <div class="photo">
-        <img src="../../assets/images/photo.png" alt="" width="70px">
+        <img src="../../assets/images/photo.png" alt="">
       </div>
       <div class="text-information">
         <h1>{{userData.name}}</h1>
@@ -45,7 +45,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Menu',
   data() {
@@ -54,7 +53,7 @@ export default {
         {
           name: 'Home',
           icon: 'fal fa-home',
-          number: ''
+          number: '',
         },
         {
           name: 'Calendar',
@@ -64,57 +63,58 @@ export default {
         {
           name: 'Overview',
           icon: 'fal fa-chart-pie',
-          number: '5'
+          number: '5',
         },
         {
           name: 'Groups',
           icon: 'fal fa-align-left',
-          number: ''
+          number: '',
         },
         {
           name: 'Lists',
           icon: 'fal fa-list-ul',
-          number: '4'
+          number: '4',
         },
         {
           name: 'Profile',
           icon: 'fal fa-user-circle',
-          number: ''
+          number: '',
         },
         {
           name: 'Timeline',
           icon: 'fal fa-undo fa-rotate-90',
-          number: '2'
-        }
-      ]
+          number: '2',
+        },
+      ],
     };
   },
   methods: {
-    closeMenu: function () {
-      this.$store.dispatch('toggleMenu')
+    closeMenu: function() {
+      this.$store.dispatch('toggleMenu');
     },
-    handleSettings: function () {
-      this.$store.dispatch('toggleMenu')
-      this.$router.push({name: 'Settings'})
+    handleSettings: function() {
+      this.$store.dispatch('toggleMenu');
+      this.$router.push({ name: 'Settings' });
     },
-    handleLogout: function () {
-      this.$store.dispatch('logoutUser')
+    handleLogout: function() {
+      this.$store.dispatch('logoutUser');
     },
-    handleRoute: function (name) {
-      this.$store.dispatch('toggleMenu')
-      this.$router.push({name: name})
-    }
+    handleRoute: function(name) {
+      this.$store.dispatch('toggleMenu');
+      this.$router.push({ name: name });
+    },
   },
   computed: {
-    userData: function () {
-      return this.$store.getters.userData
-    }
-  }
+    userData: function() {
+      return this.$store.getters.userData;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 $textColor: #1d1d26;
+@import '@/style/_vars.scss';
 
 .closer {
   position: absolute;
@@ -128,7 +128,7 @@ $textColor: #1d1d26;
   position: absolute;
   height: 100%;
   width: 300px;
-  padding: 20px 30px;
+  padding: 20px 25px;
   display: block;
   flex-direction: column;
   top: 0;
@@ -136,22 +136,25 @@ $textColor: #1d1d26;
   z-index: 100;
   color: $textColor;
   left: 0;
-  transition: 0.3s transform ease-in-out
+  transition: 0.3s transform ease-out;
+  @include for-small-phone {
+    width: 250px;
+    padding: 14px 20px;
+  }
 }
 .closed {
   transform: translateX(-100%);
 }
 .opened {
-  transform: translate(0)
+  transform: translate(0);
 }
 
 .profile {
   display: flex;
   padding-bottom: 20px;
-  position: relative;
   margin-bottom: 5px;
+  position: relative;
   text-align: left;
-  padding-top: 10px;
   &::after {
     content: '';
     position: absolute;
@@ -163,10 +166,14 @@ $textColor: #1d1d26;
     background-size: contain;
   }
   h1 {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.2;
     font-weight: 400;
     margin-bottom: 8px;
+    word-break: break-word;
+    @include for-small-phone {
+      font-size: 23px;
+    }
   }
   p {
     opacity: 0.6;
@@ -174,21 +181,34 @@ $textColor: #1d1d26;
 }
 .photo {
   margin-right: 20px;
+  height: initial;
+  img {
+    width: 70px;
+  }
+  @include for-small-phone {
+    margin-right: 10px;
+    img {
+      width: 60px;
+    }
+  }
 }
 
 li {
   display: flex;
   justify-content: space-between;
-  padding: 22px 0 22px 60px;
+  padding: 22px 0 22px 55px;
   position: relative;
   font-size: 18px;
+  @include for-small-phone {
+    padding: 19px 0 19px 55px;
+    }
   cursor: pointer;
   img {
     position: absolute;
     left: 0;
     width: 30px;
     top: 50%;
-    transform: translateY(-50%)
+    transform: translateY(-50%);
   }
   p {
     font-size: 16px;
@@ -198,7 +218,7 @@ li {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 32px;
+    font-size: 30px;
     color: #cdcdcd;
     transition: all 0.2s ease-in;
   }
