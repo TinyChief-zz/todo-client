@@ -1,12 +1,15 @@
 <template>
   <div :class="['wrapper', this.$store.getters.menuStatus ? 'menu-opened' : 'menu-closed']">
-    <Toolbar leftIcon="menu" rightIcon="search" title="Timeline" @left-icon-clicked="leftAction">
+    <Toolbar
+      leftIcon="fal fa-bars"   
+      title="Timeline"  
+      @left-icon-clicked="leftAction"
+    >
     </Toolbar>
     <div class="blocks blocks-tasks">
       <div v-for="(day, i) in daysWithTasks" :key="i" class="days-block">
         <p class="day-title">{{ day }}</p>
         <div v-for="(hero, index) in getTaskForDay(day)" v-bind:key="index" class="block-item">
-          <!-- <img :src="'../assets/images/'+ hero.icon +'.png'" alt="email"> -->
           <img :src="require('../assets/images/'+ hero.icon +'.png')" :alt="hero.icon">
           <div class="block-item__content">
             <p class="block-item__title">

@@ -5,17 +5,14 @@
       If parent component provide data, for example,
       for right icon, then this renders right icon.
      -->
-    <div class="btn--action" @click="$emit('left-icon-clicked')">
+    <div class="btn--action" v-if="leftIcon" @click="$emit('left-icon-clicked')">
       <i :class=[leftIcon]></i>
     </div>
     <span class="title" v-if="title">{{ title }}</span>
-    <div class="btn--action" v-if="rightIcon" @click="$emit('right-icon-clicked')">
-      <!-- <img 
-        :src="require('../../assets/images/' + rightIcon + '.png')" 
-        :class="[rightIcon == leftIcon ? 'invisible' : '']"
-        alt="" 
-        width="25px"
-      > -->
+    <div
+      :class="[!rightIcon ? 'invisible' : '', 'btn--action']"
+      @click="$emit('right-icon-clicked')"
+    >
       <i :class=[rightIcon]></i>
     </div>
   </div>

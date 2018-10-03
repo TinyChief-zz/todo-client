@@ -1,5 +1,7 @@
 <template>
-  <div :class="['wrapper', this.$store.getters.menuStatus ? 'menu-opened' : 'menu-closed']">
+  <div
+    :class="['wrapper', this.$store.getters.menuStatus ? 'menu-opened' : 'menu-closed']"
+  >
     <Toolbar leftIcon="fal fa-bars" title="" @left-icon-clicked="leftAction">
     </Toolbar>
     <div class="date">
@@ -12,8 +14,6 @@
     </div>
     <div class="blocks blocks-tasks">
       <div v-for="(hero, index) in todayTasks" v-bind:key="index" class="block-item">
-        <!-- <img :src="'../assets/images/'+ hero.icon +'.png'" alt="email"> -->
-        <!-- <img :src="require('../assets/images/'+ hero.type ? hero.type : 'people' +'.png')" :alt="hero.type"> -->
         <img :src="require('../assets/images/people.png')" :alt="hero.type">
         <div class="block-item__content">
           <p class="block-item__title">
@@ -38,12 +38,12 @@ export default {
   components: {
     Toolbar,
     AddTask,
-    Menu
+    Menu,
   },
   data() {
     return {
       time: {},
-      tasks: []
+      tasks: [],
     };
   },
   computed: {
@@ -51,10 +51,15 @@ export default {
       return this.$store.getters.todayTasks;
     },
     newTask() {
-      return this.$store.getters.openNewTask
+      return this.$store.getters.openNewTask;
     },
   },
   methods: {
+    closeMenu: function() {
+      if (!this.$store.getters.menuStatus) {
+        console.log('click')
+      }
+    },
     leftAction: function() {
       this.$store.dispatch('toggleMenu');
     },
@@ -79,7 +84,7 @@ export default {
     },
   },
   beforeMount: async function() {
-    this.time = this.getTime()
+    this.time = this.getTime();
     // Comment this two lines!
     // await this.$store.dispatch('getUserTasks')
     // this.$store.dispatch('getTodayTasks')

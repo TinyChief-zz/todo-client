@@ -1,5 +1,11 @@
 <template>
   <div :class="[this.$store.getters.menuStatus ? 'opened' : 'closed', 'menu']">
+    <div
+      v-if="this.$store.getters.menuStatus"
+      class="closer"
+      @click="closeMenu"
+    ></div>
+
     <div class="profile">
       <div class="photo">
         <img src="../../assets/images/photo.png" alt="" width="70px">
@@ -84,6 +90,9 @@ export default {
     };
   },
   methods: {
+    closeMenu: function () {
+      this.$store.dispatch('toggleMenu')
+    },
     handleSettings: function () {
       this.$store.dispatch('toggleMenu')
       this.$router.push({name: 'Settings'})
@@ -106,6 +115,14 @@ export default {
 
 <style scoped lang="scss">
 $textColor: #1d1d26;
+
+.closer {
+  position: absolute;
+  width: 1000px;
+  height: 100%;
+  left: 100%;
+  top: 0;
+}
 
 .menu {
   position: absolute;

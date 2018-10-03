@@ -1,6 +1,11 @@
 <template>
   <div :class="['wrapper', this.$store.getters.menuStatus ? 'menu-opened' : 'menu-closed']">
-    <Toolbar leftIcon="menu" rightIcon="search" title="Settings" @left-icon-clicked="leftAction">
+    <Toolbar
+      leftIcon="fal fa-bars"
+      rightIcon="fal fa-search"   
+      title="Settings"  
+      @left-icon-clicked="leftAction"
+    >
     </Toolbar>
     <div class="header">
       <div class="photo-wrapper">
