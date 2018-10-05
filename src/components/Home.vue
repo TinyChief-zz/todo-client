@@ -13,16 +13,7 @@
       </div>
     </div>
     <div class="blocks blocks-tasks">
-      <div v-for="(hero, index) in todayTasks" v-bind:key="index" class="block-item">
-        <Icon :iconClass="hero.icon"></Icon>
-        <div class="block-item__content">
-          <p class="block-item__title">
-            {{ hero.title }}
-            <span>{{hero.time}}</span>
-          </p>
-          <p class="block-item__type">{{hero.type}}</p>
-        </div>
-      </div>
+      <TaskBlock v-for="(hero, index) in todayTasks" v-bind:key="index" :task="hero"></TaskBlock>
     </div>
     <add-task></add-task>
   </div>
@@ -83,6 +74,9 @@ export default {
     if (!this.$store.getters.getTodayDate) {
       this.$store.dispatch('setDate')
     }
+    // Comment these two lines
+    await this.$store.dispatch('getUserTasks')
+    this.$store.dispatch('getTodayTasks')
     this.time = this.getTime();
   },
   mounted: function() {
@@ -95,9 +89,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.block-item__title {
-  font-size: 16px;
-}
 
 .large-text {
   font-weight: 200;
@@ -112,7 +103,7 @@ export default {
 }
 
 .time {
-  margin: 35px auto 12px auto;
+  margin: 18px auto 18px auto;
   width: 120px;
   height: 120px;
   background-color: rgba(255, 255, 255, 0.1);

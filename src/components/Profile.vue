@@ -1,5 +1,5 @@
 <template>
-  <div :class="['wrapper', this.$store.getters.statusMenu ? 'menu-opened' : 'menu-closed']">
+  <div :class="['wrapper', this.$store.getters.menuStatus ? 'menu-opened' : 'menu-closed']">
     <Toolbar
       leftIcon="fal fa-bars"   
       title="Profile"  
@@ -31,40 +31,35 @@
 </template>
 
 <script>
-import Toolbar from "@/components/reusable/Toolbar.vue";
-
 export default {
-  name: "Profile",
-  components: {
-    Toolbar
-  },
+  name: 'Profile',
   data() {
     return {
       toggleMenu: false,
       summaryItems: [
         {
-          title: "Completed",
-          amount: "20",
-          progress: "1"
+          title: 'Completed',
+          amount: '20',
+          progress: '1',
         },
         {
-          title: "Snoozed",
-          amount: "13",
-          progress: "2"
+          title: 'Snoozed',
+          amount: '13',
+          progress: '2',
         },
         {
-          title: "Overdue",
-          amount: "6",
-          progress: "3"
-        }
-      ]
+          title: 'Overdue',
+          amount: '6',
+          progress: '3',
+        },
+      ],
     };
   },
   methods: {
     leftAction: function() {
-      this.$store.dispatch('toggleMenu')
+      this.$store.dispatch('toggleMenu');
     },
-  }
+  },
 };
 </script>
 
@@ -79,13 +74,13 @@ export default {
   padding: 30px 15px;
   position: relative;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     height: 2px;
     width: 100%;
     bottom: 0;
     left: 0;
-    background: url("../assets/images/divider.png") center;
+    background: url('../assets/images/divider.png') center;
     background-size: contain;
   }
   h5 {

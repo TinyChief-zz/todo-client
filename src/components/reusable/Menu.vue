@@ -23,7 +23,8 @@
           @click="handleRoute(item.name)">
           <Icon :iconClass="[item.icon]" :divClass="['menu-icon']"></Icon>
           <p>{{ item.name }}</p>
-          <span>{{ item.number }}</span>
+          <p class="not-yet" v-if="item.notYet">В разработке</p>
+          <span v-if="item.number">{{ item.number }}</span>
         </li>
       </ul>
     </nav>
@@ -51,12 +52,10 @@ export default {
         {
           name: 'Home',
           icon: 'fal fa-home',
-          number: '',
         },
         {
           name: 'Calendar',
           icon: 'fal fa-calendar-alt',
-          number: '',
         },
         {
           name: 'Overview',
@@ -64,19 +63,18 @@ export default {
           number: '5',
         },
         {
-          name: 'Groups',
+          name: `Groups`,
+          notYet: true,
           icon: 'fal fa-align-left',
-          number: '',
         },
         {
           name: 'Lists',
+          notYet: true,
           icon: 'fal fa-list-ul',
-          number: '4',
         },
         {
           name: 'Profile',
           icon: 'fal fa-user-circle',
-          number: '',
         },
         {
           name: 'Timeline',
@@ -121,7 +119,9 @@ $textColor: #1d1d26;
   left: 100%;
   top: 0;
 }
-
+.not-yet {
+  text-decoration: underline
+}
 .menu {
   position: absolute;
   height: 100%;
@@ -210,6 +210,7 @@ li {
   }
   p {
     font-size: 16px;
+    display: block;
   }
 }
 nav {

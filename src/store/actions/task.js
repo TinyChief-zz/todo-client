@@ -9,7 +9,6 @@ async function getUserTasks ({ commit }) {
       userId: this.state.user._id,
       jwt: this.state.jwt
     })
-    // getTodayTasks()
     const result = tasks.data.map((el, i) => {
       if (Object.keys(iconNames).includes(el.type || el.types)) {
         el.icon = iconNames[el.type || el.types]
@@ -18,7 +17,6 @@ async function getUserTasks ({ commit }) {
       }
       return el
     })
-    console.log(result)
     commit('setUserTasks', result)
   } catch (err) {
     console.log(err)
@@ -26,8 +24,6 @@ async function getUserTasks ({ commit }) {
 }
 async function createTask ({ commit }, payload) {
   try {
-    // commit('addTaskToUser', payload.task_id)
-    console.log(payload)
     const response = await TaskService.addNewTask({
       task: {
         ...payload,
@@ -35,7 +31,7 @@ async function createTask ({ commit }, payload) {
       },
       jwt: this.state.jwt
     })
-    console.log(response.data)
+    response.data.icon = iconNames[response.data.type]
     commit('addTaskToUser', response.data)
     // Check if need to add to todayTasks list
     const todayDay = new Date().getDate()

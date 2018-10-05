@@ -10,7 +10,7 @@
       <div v-for="(day, i) in daysWithTasks" :key="i" class="days-block">
         <p class="day-title">{{ day }}</p>
         <div v-for="(hero, index) in getTaskForDay(day)" v-bind:key="index" class="block-item">
-          <img :src="require('../assets/images/'+ hero.icon +'.png')" :alt="hero.icon">
+          <Icon :iconClass="hero.icon"></Icon>
           <div class="block-item__content">
             <p class="block-item__title">
               {{ hero.title }}
@@ -25,59 +25,30 @@
 </template>
 
 <script>
-import Toolbar from "@/components/reusable/Toolbar.vue";
+import Toolbar from '@/components/reusable/Toolbar.vue';
 
 export default {
-  name: "Timeline",
+  name: 'Timeline',
   components: {
-    Toolbar
+    Toolbar,
   },
   data() {
     return {
       daysWithTasks: [],
-      tasks: [
-        {
-          title: "Brian’s Birthday",
-          type: "",
-          time: "10am",
-          icon: "birthday",
-          date: new Date(2018, 5, 11)
-        },
-        {
-          title: "Lunch with Diane",
-          type: "Restaurant",
-          time: "12am",
-          icon: "food",
-          date: new Date(2018, 5, 11)
-        },
-        {
-          title: "Design Meeting",
-          type: "Hangouts",
-          time: "2pm",
-          icon: "chat",
-          date: new Date(2018, 7, 10)
-        },
-        {
-          title: "Revise Wireframes",
-          type: "Mobile App",
-          time: "12am",
-          icon: "mouse",
-          date: new Date(2018, 5, 16)
-        }
-      ]
+      tasks: [],
     };
   },
   methods: {
     leftAction: function() {
-      this.$store.dispatch('toggleMenu')
+      this.$store.dispatch('toggleMenu');
     },
     getDays: function() {
       let days = [];
       let allDays = [];
       const options = {
-        weekday: "long",
-        month: "long",
-        day: "2-digit"
+        weekday: 'long',
+        month: 'long',
+        day: '2-digit',
       };
       this.tasks.map(el => {
         days.push(new Date(el.date));
@@ -88,7 +59,7 @@ export default {
       });
       // TRANSFORM DATE OBJECTS TO HUMAN READBLE STRING
       days = days.map(el => {
-        return new Date(el).toLocaleDateString("ru-RU", options);
+        return new Date(el).toLocaleDateString('ru-Ru', options);
       });
       // REMAIN ONLY UNIQUE VALUES
       days = [...new Set(days)];
@@ -98,25 +69,29 @@ export default {
     getTaskForDay: function(day) {
       const tasksForDay = [];
       const options = {
-        weekday: "long",
-        month: "long",
-        day: "2-digit"
+        weekday: 'long',
+        month: 'long',
+        day: '2-digit',
       };
       this.tasks.map(el => {
-        const taskDay = new Date(el.date).toLocaleDateString("ru-RU", options);
+        const taskDay = new Date(el.date).toLocaleDateString('ru-RU', options);
         if (day == taskDay) {
           tasksForDay.push(el);
         }
       });
       return tasksForDay;
-    }
+    },
   },
   computed: {},
   mounted: function() {
-    this.$nextTick(() => {
-      this.getDays();
+    this.tasks = this.$store.getters.userTasks;
+    this.tasks.sort(function(a, b) {
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      return new Date(a.date) - new Date(b.date);
     });
-  }
+    this.getDays();
+  },
 };
 </script>
 
@@ -128,7 +103,7 @@ export default {
     padding: 20px 15px;
     background-color: rgba(255, 255, 255, 0.08);
     text-transform: uppercase;
-    font-weight: 200;
+    // font-weight: 200;
     font-size: 14px;
     letter-spacing: 1px;
   }

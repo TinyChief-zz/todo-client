@@ -9,7 +9,7 @@ export default {
     name: 'Вадим Юлдашбаев',
     phone: '89871392440'
   },
-  jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLnJ1IiwiaWQiOiI1YmFmNTdhNTcyYzY4NjE1ZTFiYTVhZTQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE1Mzg3MzQ4MDcsImV4cCI6MTUzODczODQwN30.-OIWviQxVEuP46LqaEe07_WqIKs6kIL5fsMzDFniKvk',
+  jwt: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLnJ1IiwiaWQiOiI1YmFmNTdhNTcyYzY4NjE1ZTFiYTVhZTQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE1Mzg3NDU2MTksImV4cCI6MTUzODc0OTIxOX0.cbRYGoFTmyPXVxMuKpwR5WA0cOPCGm1M4olIXE-YoRk',
   loading: false,
   openNewTask: false,
   todayDate: null

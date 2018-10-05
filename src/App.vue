@@ -32,9 +32,13 @@ export default {
   font-family: 'Avenir Light';
   src: url('assets/fonts/Avenir-Light.ttf') format('ttf');
 }
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('assets/fonts/AvenirNextCyr-Thin.ttf') format('ttf');
+}
 
 #app {
-  font-family: 'Avenir Book', Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir Next', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -94,9 +98,6 @@ export default {
   width: 100%;
   overflow-y: scroll;
 }
-.blocks-tasks .block-item {
-  height: 90px;
-}
 .block-item {
   height: 80px;
   display: flex;
@@ -141,7 +142,8 @@ export default {
     justify-content: space-between;
     text-align: left;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     width: 100%;

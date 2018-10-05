@@ -25,7 +25,7 @@ export default {
   align-items: center
 }
 i {
-  font-size: 32px;
+  font-size: 28px;
   color: rgba(#cdcdcd, 0.8);
   transition: all 0.2s ease-in;
 }
