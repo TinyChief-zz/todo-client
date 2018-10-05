@@ -6,9 +6,8 @@
     </vue-calendar>
     <div class="blocks">
       <div v-for="(hero, index) in tasksDisplay" v-bind:key="index" class="block-item">
-        <!-- <img :src="'../assets/images/'+ hero.icon +'.png'" alt="email"> -->
-        <!-- <img :src="require('../assets/images/'+ hero.icon +'.png')" :alt="hero.icon"> -->
-        <img :src="require('../assets/images/people.png')" :alt="hero.type">
+        <!-- <img :src="require('../assets/images/people.png')" :alt="hero.type"> -->
+        <Icon :iconClass="hero.icon"></Icon>
         <div class="block-item__content">
           <p class="block-item__title">
             {{ hero.title }}

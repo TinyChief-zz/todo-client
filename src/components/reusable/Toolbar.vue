@@ -6,7 +6,7 @@
       for right icon, then this renders right icon.
      -->
     <div class="btn--action" v-if="leftIcon" @click="$emit('left-icon-clicked')">
-      <i :class=[leftIcon]></i>
+      <i :class=[leftIcon] style="color : rgba(255, 255, 255, 0.9);"></i>
     </div>
     <span class="title" v-if="title">{{ title }}</span>
     <div

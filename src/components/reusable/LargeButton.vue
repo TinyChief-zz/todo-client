@@ -16,6 +16,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '@/style/_vars.scss';
+
 .btn--large {
   background-color: transparent;
   border: 1px solid white;
@@ -28,5 +30,8 @@ export default {
   margin: 40px 0 30px 0;
   color: white;
   cursor: pointer;
+  @include for-phone {
+    width: 100%;
+  }
 }
 </style>

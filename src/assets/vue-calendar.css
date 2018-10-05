@@ -38,7 +38,7 @@
 .prev-month {
   cursor: pointer;
   position: absolute;
-  right: 0;
+  right: 6px;
   top: -9px;
   font-size: 40px;
 }
@@ -63,7 +63,7 @@
 .days-body {
   display: grid;
   grid-template-rows: auto;
-  grid-row-gap: 5px;
+  /* grid-row-gap: 5px; */
 }
 
 .day-number {

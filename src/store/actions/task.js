@@ -10,7 +10,16 @@ async function getUserTasks ({ commit }) {
       jwt: this.state.jwt
     })
     // getTodayTasks()
-    commit('setUserTasks', tasks.data)
+    const result = tasks.data.map((el, i) => {
+      if (Object.keys(iconNames).includes(el.type || el.types)) {
+        el.icon = iconNames[el.type || el.types]
+      } else {
+        el.icon = iconNames['default']
+      }
+      return el
+    })
+    console.log(result)
+    commit('setUserTasks', result)
   } catch (err) {
     console.log(err)
   }
@@ -18,6 +27,7 @@ async function getUserTasks ({ commit }) {
 async function createTask ({ commit }, payload) {
   try {
     // commit('addTaskToUser', payload.task_id)
+    console.log(payload)
     const response = await TaskService.addNewTask({
       task: {
         ...payload,
@@ -25,6 +35,7 @@ async function createTask ({ commit }, payload) {
       },
       jwt: this.state.jwt
     })
+    console.log(response.data)
     commit('addTaskToUser', response.data)
     // Check if need to add to todayTasks list
     const todayDay = new Date().getDate()
@@ -76,3 +87,14 @@ function openNewTask ({ commit }) {
 }
 
 export { getUserTasks, createTask, getTodayTasks, openNewTask }
+
+const iconNames = {
+  'работа': 'fal fa-briefcase',
+  'еда': 'fal fa-utensils',
+  'встреча': 'fal fa-comments-alt',
+  'учеба': 'fal fa-graduation-cap',
+  'развлечение': 'fal fa-smile',
+  'покупки': 'fal fa-shopping-cart',
+  'отдых': 'fal fa-umbrella-beach',
+  'default': 'fal fa-edit'
+}

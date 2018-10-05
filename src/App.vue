@@ -95,19 +95,13 @@ export default {
   overflow-y: scroll;
 }
 .blocks-tasks .block-item {
-  height: 100px;
-  img:first-child {
-    height: 28px;
-    position: absolute;
-    left: 0;
-    top: 30px;
-  }
+  height: 90px;
 }
 .block-item {
   height: 80px;
   display: flex;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 60px;
   position: relative;
   &::after {
     content: '';

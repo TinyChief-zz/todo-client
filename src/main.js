@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import Menu from './components/reusable/Menu'
 import Toolbar from './components/reusable/Toolbar'
+import Icon from './components/reusable/Icon'
 import router from './router'
 import { store } from './store'
 import vueCalendar from 'vue2-simple-calendar'
@@ -11,6 +12,7 @@ import './assets/vue-calendar.css'
 
 Vue.component('Menu', Menu)
 Vue.component('Toolbar', Toolbar)
+Vue.component('Icon', Icon)
 
 Vue.config.productionTip = false
 
@@ -32,7 +34,7 @@ new Vue({
   store,
   router,
   components: {
-    App, Menu, Toolbar
+    App, Menu, Toolbar, Icon
   },
   template: '<App/>'
 })

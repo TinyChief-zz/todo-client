@@ -12,28 +12,28 @@
       </div>
       <div class="blocks">
         <div class="block-item">
-          <img src="../assets/images/profile.png" alt="email">
+          <Icon iconClass="fal fa-user-circle"></Icon>
           <div class="block-item__content">
             <p class="block-item__title">Name</p>
             <input type="name" name="name" placeholder="Enter name" v-model="name"/>
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/images/email.png" alt="email">
+          <Icon iconClass="fal fa-envelope"></Icon>          
           <div class="block-item__content">
             <p class="block-item__title">Email</p>
             <input type="email" name="email" placeholder="Enter email" v-model="email" />
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/images/password.png" alt="password">
+          <Icon iconClass="fal fa-lock"></Icon>
           <div class="block-item__content">
             <p class="block-item__title">Password</p>
             <input type="password" name="Password" placeholder="Enter password" v-model="password" />
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/images/phone.png" alt="phone">
+          <Icon iconClass="fal fa-mobile-android"></Icon>
           <div class="block-item__content">
             <p class="block-item__title">Phone</p>
             <input type="text" name="Phone" placeholder="Your phone number" v-model="phone"/>

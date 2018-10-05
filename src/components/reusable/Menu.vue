@@ -20,10 +20,8 @@
         <li 
           v-for="(item, i) in navList" 
           :key="i"
-          @click="handleRoute(item.name)"
-        >
-          <!-- <img :src="require('../../assets/images/' + item.icon + '.png')" :alt="item.icon"> -->
-          <i :class="[item.icon]"></i>
+          @click="handleRoute(item.name)">
+          <Icon :iconClass="[item.icon]" :divClass="['menu-icon']"></Icon>
           <p>{{ item.name }}</p>
           <span>{{ item.number }}</span>
         </li>
@@ -32,11 +30,11 @@
     <div>
       <ul>
         <li @click="handleSettings">
-          <i class='fal fa-cog'></i>
+          <Icon :iconClass="['fal fa-cog']" :divClass="['menu-icon']"></Icon>
           <p>Settings</p>
         </li>
         <li @click="handleLogout">
-          <i class="fal fa-sign-out"></i>
+          <Icon :iconClass="['fal fa-sign-out']" :divClass="['menu-icon']"></Icon>
           <p>Logout</p>
         </li>
       </ul>
@@ -201,7 +199,7 @@ li {
   font-size: 18px;
   @include for-small-phone {
     padding: 19px 0 19px 55px;
-    }
+  }
   cursor: pointer;
   img {
     position: absolute;
@@ -213,21 +211,7 @@ li {
   p {
     font-size: 16px;
   }
-  i {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    color: #cdcdcd;
-    transition: all 0.2s ease-in;
-  }
-  &:hover i {
-    color: #ff4f79;
-    opacity: 0.8;
-  }
 }
-
 nav {
   padding-bottom: 5px;
   position: relative;

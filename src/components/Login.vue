@@ -9,14 +9,14 @@
       </div>
       <div class="blocks">
         <div class="block-item">
-          <img src="../assets/images/email.png" alt="email">
+          <Icon iconClass="fal fa-envelope"></Icon>
           <div class="block-item__content">
             <p class="block-item__title">Email</p>
             <input type="email" name="email" placeholder="Enter your email" v-model="email" />
           </div>
         </div>
         <div class="block-item">
-          <img src="../assets/images/password.png" alt="password">
+          <Icon iconClass="fal fa-lock"></Icon>
           <div class="block-item__content">
             <p class="block-item__title">Password</p>
             <input type="password" name="Password" placeholder="Enter password" v-model="password" />
@@ -45,8 +45,6 @@
       return {
         email: null,
         password: null,
-        // email: 'vadim2@gmail.com',
-        // password: '123456',
         name: null,
         error: null
       };

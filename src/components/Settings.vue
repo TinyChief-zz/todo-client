@@ -22,35 +22,35 @@
     </div>
     <div class="blocks">
       <div class="block-item">
-        <i class="fal fa-user-circle"></i>
+        <Icon iconClass="fal fa-user-circle"></Icon>
         <div class="block-item__content">
           <p class="block-item__title">name</p>
           <input type="text" name="name" v-model="userData.name" />
         </div>
       </div>
       <div class="block-item">
-        <i class="fal fa-envelope"></i>
+        <Icon iconClass="fal fa-envelope"></Icon>
         <div class="block-item__content">
           <p class="block-item__title">email</p>
           <input type="text" name="email" v-model="userData.email" />
         </div>
       </div>
       <div class="block-item">
-        <i class="fal fa-lock-alt"></i>
+        <Icon iconClass="fal fa-lock-alt"></Icon>        
         <div class="block-item__content">
           <p class="block-item__title">password</p>
           <input type="password" name="password" v-model="userData.password" />
         </div>
       </div>
       <div class="block-item">
-        <i class="fal fa-mobile"></i>
+        <Icon iconClass="fal fa-mobile"></Icon>
         <div class="block-item__content">
           <p class="block-item__title">phone</p>
           <input type="phone" name="phone" v-model="userData.phone" />
         </div>
       </div>
       <div class="block-item">
-        <i class="fal fa-map-pin"></i>
+        <Icon iconClass="fal fa-map-pin"></Icon>
         <div class="block-item__content">
           <p class="block-item__title">address</p>
           <input type="address" name="address" placeholder="MOSCOW" />
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Settings',
   data() {

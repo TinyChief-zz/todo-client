@@ -14,7 +14,7 @@
     </div>
     <div class="blocks blocks-tasks">
       <div v-for="(hero, index) in todayTasks" v-bind:key="index" class="block-item">
-        <img :src="require('../assets/images/people.png')" :alt="hero.type">
+        <Icon :iconClass="hero.icon"></Icon>
         <div class="block-item__content">
           <p class="block-item__title">
             {{ hero.title }}
@@ -29,16 +29,12 @@
 </template>
 
 <script>
-import Toolbar from '@/components/reusable/Toolbar.vue';
 import AddTask from '@/components/reusable/AddTask.vue';
-import Menu from '@/components/reusable/Menu.vue';
 
 export default {
   name: 'Home',
   components: {
-    Toolbar,
     AddTask,
-    Menu,
   },
   data() {
     return {
